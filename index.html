@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            transition: transform 0.3s;
+        }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: black;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+            font-weight: 500;
+            border-radius: 25px;
+            border: 3px solid black; 
+        }
+        .navbar:hover{
+            background-color: white;
+            color:black;
+            border-radius: 25px;
+            border: 3px solid black; 
+        }
+        .container {
+            display: flex;
+            margin-top: 50px;
+            flex-grow: 1;
+        }
+        .sidebar {
+            width: 250px;
+            background: black;
+            color: white;
+            padding: 18px;
+            transition: width 0.3s;
+            margin-left: 10px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile img {
+            width: 80px;
+            border-radius: 50%;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background: white;
+            text-align: center;
+        }
+        .content img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+
+        
+        .right-panel {
+            width: 250px;
+            background: black;
+            padding: 20px;
+            color: white;
+        }
+        .newsletter {
+            text-align: center;
+            margin-top: 20px;
+         
+        }
+
+        #email{
+            border-radius: 25px;
+            height: 30px;
+width: 150px;
+border: 3px solid chartreuse;
+color: black;
+        }
+        #btn{
+            margin-top: 15px;
+            background-color: aqua;
+            font-weight: 800;
+            width: 120px;
+            height: 30px;
+            border-radius: 20px;
+            border: 3px solid white;
+            cursor: pointer;
+        }
+        #btn:hover{
+            background-color: chartreuse;
+            color: black;
+        }
+        
+        .newsletter img {
+            width: 100px;
+            border-radius: 10px;
+        }
+        .footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 0;
+                overflow: hidden;
+                padding: 0;
+            }
+            .sidebar ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">Fixed Navbar</nav>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <div class="profile">
+                <img src="how-to-stop-being-a-people-pleaser-1_1.jpg" alt="Profile Picture">
+                <p>Welcome, User!</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <h2>Welcome to Our Website</h2>
+            <img src="is_web_development_good_career.avif" alt="Main Image">
+            <p>This is the main content section where we introduce our services and features. Stay tuned for updates!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repudiandae error aspernatur iure beatae dicta, <br>possimus expedita exercitationem cum dolorem numquam alias tempore corporis facere saepe aliquam at necessitatibus voluptates ipsam voluptas modi voluptate nam. <br> Omnis ullam voluptatibus fugit tempore odio a perspiciatis qui corrupti aut provident eveniet amet molestiae laboriosam <br> incidunt, natus, repellat veritatis asperiores, vel reprehenderit! <br>Commodi, dolores. Et placeat veritatis quia cumque voluptate sapiente, nisi unde error ratione iste hic odio aliquid reprehenderit <br> consequatur libero molestiae vero vel itaque nam mollitia quas eaque. <br>Eaque laudantium quaerat, iste, minima tempora animi illum omnis fugit exercitationem numquam nisi ratione?</p>
+        </main>
+        <aside class="right-panel">
+            <h3>Right Panel</h3>
+            <div class="newsletter">
+                <img src="Brafton-Newsletter-Blog_Assets_TOC-9.png" alt="Newsletter">
+                <p>Subscribe to our newsletter for the latest updates!</p>
+                <input type="email" placeholder="Enter your email" id="email">
+                <button id="btn">Subscribe</button>
+            </div>
+        </aside>
+    </div>
+    <footer class="footer">Footer Section</footer>
+</body>
+</html>

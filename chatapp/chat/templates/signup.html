@@ -1,0 +1,119 @@
+{% block content %}
+  <div class="signup-container">
+    <div class="signup-box">
+      <h1>Sign Up</h1>
+      <form method="POST" class="signup-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-btn">Sign Up</button>
+      </form>
+      <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+<style>
+  /* General Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* Background Gradient */
+  body {
+    background: linear-gradient(45deg, #ff8c00, #ff2a68);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Container Styling */
+  .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* Form Box Styling */
+  .signup-box {
+    background-color: white;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* Title Styling */
+  .signup-box h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Input Field Styling */
+  .signup-form input,
+  .signup-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .signup-form input:focus,
+  .signup-form button:hover {
+    border-color: #ff2a68;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(255, 42, 104, 0.6);
+  }
+
+  /* Button Styling */
+  .submit-btn {
+    background-color: #ff8c00;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: #ff2a68;
+    transform: translateY(-3px);
+  }
+
+  /* Login Link Styling */
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .login-link a {
+    color: #ff8c00;
+    text-decoration: none;
+  }
+
+  .login-link a:hover {
+    color: #ff2a68;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

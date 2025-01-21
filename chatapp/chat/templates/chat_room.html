@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        /* General Body Style */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        h1 {
+            color: #4CAF50;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        h1:hover {
+            color: #3e8e41;
+        }
+
+        /* User List Styling */
+        .user-list {
+            width: 80%;
+            max-width: 500px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .user-list:hover {
+            transform: scale(1.05);
+        }
+
+        .user-list h3 {
+            text-align: center;
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* User List Items */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        ul li:hover {
+            background-color: #f1f1f1;
+            transform: translateX(5px);
+        }
+
+        ul li a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        ul li a:hover {
+            color: #0056b3;
+        }
+
+        /* Smooth Animations for Links */
+        a {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #4CAF50;
+            bottom: -2px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        a:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+
+    <div class="user-list">
+        <h3>Users</h3>
+        <ul>
+            {% for user in users %}
+                <li>
+                    <a href="{% url 'get_messages' user.username %}">{{ user.username }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
