@@ -1,2 +1,1 @@
-# my-django-project
-a chat application
+please go to second master branch
